@@ -6,7 +6,7 @@ terraform {
     }
   }
 }
-#provider settings can be used inside variables
+#provider settings can be used inside variables assxasx
 provider "aws" {
   region = "ap-south-1"
 }
