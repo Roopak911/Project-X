@@ -22,7 +22,7 @@ resource "aws_vpc" "vpc" {
   }
 }
 
-# Public subnet for vpc
+# Public subnet for vpc gfxhfx
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.vpc.id
   count                   = length(var.public_subnets_cidr)
