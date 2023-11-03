@@ -1,10 +1,10 @@
 pipeline {
-    agent any
+    agent {label 'slave-1'}
 
     stages {
         stage('Git-checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/terraform']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/Roopak911/myproject.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/Roopak911/Project-X.git']])
             }
         }
         stage('install terraform') {
