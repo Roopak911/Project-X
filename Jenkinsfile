@@ -12,6 +12,7 @@ pipeline {
             steps {
                 sh '''
                 sudo cd /home/ec2-user/myproject
+                terraform init
                 terraform plan
                 terraform apply
                 '''
