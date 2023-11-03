@@ -6,7 +6,7 @@ terraform {
     }
   }
 }
-#provider settings
+#provider settings can be used inside variables
 provider "aws" {
   region = "ap-south-1"
 }
