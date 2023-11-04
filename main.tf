@@ -58,6 +58,17 @@ resource "aws_route_table" "publicRT" {
   }
 }
 
+
+# Routing tables to route traffic for Private Subnet
+resource "aws_route_table" "privateRT" {
+  vpc_id = aws_vpc.vpc.id
+
+  tags = {
+    Name = "${var.environment}-private-route-table"
+  }
+}
+
+
 # Internet Gateway for Public Subnet
 resource "aws_internet_gateway" "ig" {
   vpc_id = aws_vpc.vpc.id
@@ -82,4 +93,5 @@ resource "aws_nat_gateway" "nat" {
     Name = "nat"
   }
 }
+
 
