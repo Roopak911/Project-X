@@ -20,7 +20,15 @@ pipeline {
                 terraform init
                 '''
             }    
-        } 
+        }
+        stage('run terraform') {
+            steps {
+                sh '''
+                terraform plan
+                terraform apply --auto-approve
+                '''
+            }
+        }
     }
 }
 
