@@ -21,3 +21,11 @@ variable "availability_zones" {
   description = "AZ in which all the resources will be deployed"
   default = ["us-east-1a", "us-east-1b"]
 }
+
+variable "private_subnets_cidr" {
+  type        = list
+  description = "CIDR block for Private Subnet"
+  default = ["192.168.3.0/24", "192.168.4.0/24"]
+}
+
+
