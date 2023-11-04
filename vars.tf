@@ -14,6 +14,7 @@ variable "public_subnets_cidr" {
   type        = list
   description = "CIDR block for Public Subnet"
   default = ["10.0.1.0/24", "10.0.2.0/24"]
+<<<<<<< HEAD
 }
 
 variable "availability_zones" {
@@ -21,6 +22,3 @@ variable "availability_zones" {
   description = "AZ in which all the resources will be deployed"
   default = ["ap-south-1a", "ap-south-1b"]
 }
-
-
-

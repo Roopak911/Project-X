@@ -6,12 +6,12 @@ terraform {
     }
   }
 }
-
+#provider settings can be used inside variables
 provider "aws" {
   region = "ap-south-1"
 }
 
-# VPC
+# VPC hchmcmcjvjv
 resource "aws_vpc" "vpc" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = "true"
@@ -22,7 +22,7 @@ resource "aws_vpc" "vpc" {
   }
 }
 
-# Public subnet
+# Public subnet for vpc 
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.vpc.id
   count                   = length(var.public_subnets_cidr)
@@ -32,5 +32,6 @@ resource "aws_subnet" "public_subnet" {
 
   tags = {
     Name = "${var.environment}-${element(var.public_subnets_cidr, count.index)}-public-subnet"
+    Name = "${var.environment}-${element(var.availability_zones, count.index)}-public-subnet"
   }
 }
