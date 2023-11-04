@@ -110,3 +110,9 @@ resource "aws_route" "public_internet_gateway" {
 }
 
 
+# Route for NAT
+resource "aws_route" "private_nat_gateway" {
+  route_table_id         = aws_route_table.privateRT.id
+  destination_cidr_block = "0.0.0.0/0"
+  nat_gateway_id         = aws_nat_gateway.nat.id
+}
