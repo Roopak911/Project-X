@@ -48,3 +48,12 @@ resource "aws_subnet" "private_subnet" {
     Name = "${var.environment}-${element(var.private_subnets_cidr, count.index)}-private-subnet"
   }
 }
+
+# Routing tables to route traffic for Public Subnet
+resource "aws_route_table" "publicRT" {
+  vpc_id = aws_vpc.vpc.id
+
+  tags = {
+    Name = "${var.environment}-public-route-table"
+  }
+}
