@@ -16,7 +16,7 @@ pipeline {
                 sudo yum install -y yum-utils
                 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
                 sudo yum -y install terraform
-                sudo cd /home/ec2-user/workspace/aws-infra-using-terraform/
+                sudo cd /var/lib/jenkins/workspace/aws-infra/
                 terraform init
                 '''
             }    
