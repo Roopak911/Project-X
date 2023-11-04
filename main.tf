@@ -32,6 +32,5 @@ resource "aws_subnet" "public_subnet" {
 
   tags = {
     Name = "${var.environment}-${element(var.public_subnets_cidr, count.index)}-public-subnet"
-    Name = "${var.environment}-${element(var.availability_zones, count.index)}-public-subnet"
   }
 }
