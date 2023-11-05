@@ -25,3 +25,11 @@ module "ec2" {
   subnet-id     = module.vpc.public-subnet-id-1
   vpc_id        = module.vpc.vpc-id
 }
+
+
+module "s3"{
+  source      = "./s3_module"
+  bucket_name = "project-x-bucket"
+  acl_value   = "private"
+  region      = "us-east-1"
+}
