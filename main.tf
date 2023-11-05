@@ -11,6 +11,7 @@ module "vpc" {
 module "security-group" {
   source       = "./sg_module"
   environment  = "Project-X"
+  vpcid        = module.vpc.vpc-id
 }
 
 
