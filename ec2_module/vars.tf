@@ -11,7 +11,7 @@ variable "instance-type" {
 }
 
 variable "sg_id" {
-  type = string
+  
 }
 
 variable "subnet-id" {
