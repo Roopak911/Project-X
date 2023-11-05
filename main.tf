@@ -1,5 +1,5 @@
 module "vpc" {
-  source               = "./vpc_mpodule"
+  source               = "./vpc_module"
   environment          = "Project-X"
   vpc_cidr             = "192.168.0.0/16"
   public_subnets_cidr  = ["192.168.1.0/24", "192.168.2.0/24"]
