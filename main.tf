@@ -120,6 +120,7 @@ resource "aws_route" "private_nat_gateway" {
 
 # Subnet association for public route table
 resource "aws_route_table_association" "publicRTassoc" {
+  count = length(var.public_subnets_cidr)
   subnet_id = element(aws_subnet.public_subnet.*.id, count.index)
   route_table_id = aws_route_table.publicRT.id
 }
