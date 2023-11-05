@@ -3,7 +3,7 @@ resource "aws_security_group" "sg" {
   description = "Default SG to alllow traffic from the VPC"
   vpc_id      = var.vpcid
   depends_on = [
-    aws_vpc.vpc
+    var.vpcid
   ]
 
     ingress {
