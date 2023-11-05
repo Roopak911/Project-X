@@ -21,7 +21,7 @@ module "ec2" {
   environment   = "Project-X"
   ami-id        = "ami-05c13eab67c5d8861"
   instance-type = "t2.micro"
-  sg_id         = module.security-group.all-traffic-sg-id
+  sg_id         = [module.security-group.all-traffic-sg-id]
   subnet-id     = module.vpc.public-subnet-id-1
   vpc_id        = module.vpc.vpc-id
 }
