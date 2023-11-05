@@ -116,3 +116,13 @@ resource "aws_route" "private_nat_gateway" {
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = aws_nat_gateway.nat.id
 }
+
+
+# Subnet association for public route table
+resource "aws_route_table_association" "publicRTassoc" {
+  subnet_id = element(aws_subnet.public_subnet.*.id, count.index)
+  route_table_id = aws_route_table.public.id
+}
+
+
+
