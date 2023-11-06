@@ -3,13 +3,14 @@ resource "aws_s3_bucket" "b" {
 }
 
 
-# Creating an S3 object
-resource "aws_s3_object" "object" {
-  bucket      = aws_s3_bucket.b.id
-  for_each    = fileset("./uploads/", "*")
-  key         = "each.value"
-  source      = "./uploads/${each.value}"
-  source_hash = filemd5("uploads/${each.value}")
+# Uploading an S3 object
+resource “null_resource” “upload_files” {
+  depends_on = [aws_s3_bucket.b]
+  provisioner “local-exec” {
+  command = <<EOT
+  aws s3 cp — recursive ./uploads s3://${aws_s3_bucket.b.bucket}/
+  EOT
+  }
 }
 
   
