@@ -5,11 +5,11 @@ resource "aws_s3_bucket" "b" {
 
 # Creating an S3 object
 resource "aws_s3_object" "object" {
-  bucket     = aws_s3_bucket.b.id
-  for_each   = fileset("./uploads/", "**")
-  key        = "each.value"
-  source     = "./uploads/${each.value}"
-  etag       = filemd5("uploads/${each.value}")
+  bucket      = aws_s3_bucket.b.id
+  for_each    = fileset("./uploads/", "*")
+  key         = "each.value"
+  source      = "./uploads/${each.value}"
+  source_hash = filemd5("uploads/${each.value}")
 }
 
   
