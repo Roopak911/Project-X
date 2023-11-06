@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "b" {
 resource "aws_s3_object" "object" {
   bucket     = aws_s3_bucket.b.id
   for_each   = fileset("./uploads/", "**")
-  key        = each.value
+  key        = "each.value"
   source     = "./uploads/${each.value}"
   etag       = filemd5("uploads/${each.value}")
 }
