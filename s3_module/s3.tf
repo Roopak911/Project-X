@@ -4,11 +4,11 @@ resource "aws_s3_bucket" "b" {
 
 
 # Uploading an S3 object
-resource “null_resource” “upload_files” {
+resource "null_resource" "upload_files" {
   depends_on = [aws_s3_bucket.b]
-  provisioner “local-exec” {
+  provisioner "local-exec" {
   command = <<EOT
-  aws s3 cp — recursive ./uploads s3://${aws_s3_bucket.b.bucket}/
+  aws s3 cp ./uploads s3://${aws_s3_bucket.b.bucket}/ --recursive
   EOT
   }
 }
