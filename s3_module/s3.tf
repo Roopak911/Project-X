@@ -11,9 +11,6 @@ resource "aws_s3_object" "object" {
   key        = each.value
   source     = "uploads/${each.value}"
   etag       = filemd5("uploads/${each.value}")
-  depends_on = [
-    aws_s3_bucket.b
-  ]
 }
 
   
