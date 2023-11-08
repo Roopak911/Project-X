@@ -13,4 +13,19 @@ resource "null_resource" "upload_files" {
   }
 }
 
-  
+
+# # Creating a S3 bucket ACL
+resource "aws_s3_bucket_acl" "bucket_acl" {
+  bucket = aws_s3_bucket.b.id
+  acl    = "private"
+}
+
+
+# Block S3 public access
+resource "aws_s3_bucket_public_access_block" "block" {
+  bucket = aws_s3_bucket.b.id
+  block_public_acls   = true
+  block_public_policy = true
+}
+
+
